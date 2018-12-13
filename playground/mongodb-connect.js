@@ -1,11 +1,17 @@
-const MongoClient = require('mongodb').MongoClient;
-
-
 //Object destucturing example
 var user = {name: 'Tom', age: 45};
 var {name} = user;
 console.log(name);
 //returns name from user.
+
+
+//Getting MongoClient and ObjectID using Destructuring
+const {MongoClient, ObjectID} = require('mongodb');
+
+var obj = new ObjectID();
+console.log(obj);
+
+
 
 
 MongoClient.connect( 'mongodb://localhost:27017/TodoApp', (err, client) => {
