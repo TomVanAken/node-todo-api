@@ -14,7 +14,7 @@ console.log(obj);
 
 
 
-MongoClient.connect( 'mongodb://localhost:27017/TodoApp', (err, client) => {
+MongoClient.connect( 'mongodb://localhost:27017/TodoApp', {useNewUrlParser: true}, (err, client) => {
     if(err) {
         console.log("Unable to connect tot MongoDb Server");
         console.log(err);
@@ -25,16 +25,16 @@ MongoClient.connect( 'mongodb://localhost:27017/TodoApp', (err, client) => {
     const db = client.db('TodoApp');
 
 
-   /*  db.collection('Todos').insertOne({
-        text: 'Someting to do',
-        completed: false
-    }, (err, result) => {
-        if(err) {
-            console.log('Unable to insert Todo', err);
-            return;
-        }
-        console.log(JSON.stringify(result.ops, undefined, 2));
-    }) */
+    //  db.collection('Todos').insertOne({
+    //     text: 'Someting to do',
+    //     completed: false
+    // }, (err, result) => {
+    //     if(err) {
+    //         console.log('Unable to insert Todo', err);
+    //         return;
+    //     }
+    //     console.log(JSON.stringify(result.ops, undefined, 2));
+    // }) 
 
     db.collection('Users').insertOne({
         name: "Tom",
