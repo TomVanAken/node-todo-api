@@ -40,5 +40,11 @@ MongoClient.connect('mongodb://localhost:27017/TodoApp', { useNewUrlParser: true
     })
 
 
+    db.collection("Todos").find({
+            _id: new ObjectID("5c1bf1f5ee36d508dc987290")
+        }).toArray().then((docs) => {
+        console.log("Find by ID");
+        console.log(JSON.stringify(docs, undefined, 2));
+    })
     //client.close();
 })
