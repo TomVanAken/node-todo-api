@@ -34,17 +34,38 @@ var Todo = mongoose.model('Todo', {
 // })
 
 //Challenge
-var nextTodo = new Todo({
-    text: "   Have a meeting   ",
+// var nextTodo = new Todo({
+//     text: "   Have a meeting   ",
     
+// });
+
+// nextTodo.save().then((doc) => {
+//     console.log("Todo saved");
+//     console.log(doc);
+// }, (e) => {
+//     console.log("Unable to save", e);
+// })
+
+
+
+var User = mongoose.model("User", {
+        email: {
+            type: String,
+            required: true,
+            minlength: 1,
+            trim: true
+        }
 });
 
-nextTodo.save().then((doc) => {
-    console.log("Todo saved");
-    console.log(doc);
-}, (e) => {
-    console.log("Unable to save", e);
+var newUser= new User({
+    email: ' tom@test.com   '
 })
 
-
-
+newUser.save().then((doc) => {
+    console.log("New User saved");
+    console.log(JSON.stringify(doc, undefined, 2));
+}, (e) => {
+    console.log('Unable to save new User');
+    console.log("Message: ", e.message);
+    console.log("Errors: ", e.errors);
+})
