@@ -22,7 +22,7 @@ app.post('/todos', (req, res) => {
         //Set status 400 to 
         res.status(400).send(e);
     })
-})
+});
 
 app.get('/todos', (req, res) => {
     Todo.find().then((todos) => {
